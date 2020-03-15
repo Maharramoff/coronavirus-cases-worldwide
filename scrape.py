@@ -30,7 +30,10 @@ html = """
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script>
 $(document).ready(function() {
-    $('.dataframe').DataTable();
+    $('.dataframe').DataTable({
+        "paging": false,
+        "info":   false
+    });
 } );
 </script>
 </body>
