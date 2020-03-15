@@ -4,6 +4,19 @@ from bs4 import BeautifulSoup
 import flask
 
 app = flask.Flask(__name__)
+
+html = "" "
+<! DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>Confirmed Coronavirus Cases and Deaths by Country</title>
+</head>
+<body>
+{{table | safe}}
+</body>
+</html>
+"" "
  
 class Coronavirus:
     __check_params = [None, 'All']
@@ -41,5 +54,5 @@ def index():
     columns = ['Ölkə', '| Xəstələr', '| Yeni X.', '| Ölüm', '| Yeni Ölüm', '| Sağalıb']
     panda.set_option('display.max_rows', None)
     panda_table = panda.DataFrame(covid.get_result(), columns=columns)
-    return panda_table
+    return flask.render_template_string (html, table = panda_table.to_html (header = 'true'))
 
