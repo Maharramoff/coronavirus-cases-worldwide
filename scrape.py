@@ -5,7 +5,7 @@ import flask
 
 app = flask.Flask(__name__)
 
-html = "" "
+html = """
 <! DOCTYPE html>
 <html lang = "en">
 <head>
@@ -16,7 +16,7 @@ html = "" "
 {{table | safe}}
 </body>
 </html>
-"" "
+"""
  
 class Coronavirus:
     __check_params = [None, 'All']
