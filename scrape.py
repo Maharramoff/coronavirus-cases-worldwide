@@ -36,7 +36,10 @@ html = """
 $(document).ready(function() {
     $('.dataframe').DataTable({
         "paging": false,
-        "info":   false
+        "info":   false,
+        language: {
+            search: "Axtarış:"
+        }
     });
 } );
 </script>
