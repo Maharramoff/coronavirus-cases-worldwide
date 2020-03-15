@@ -43,11 +43,11 @@ $(document).ready(function() {
             search: "Axtarış:"
         },
         "createdRow": function ( row, data, index ) {
-            if ( data[3].replace(/[\$,]/g, '') * 1 > 0 ) {
-                $('td', row).eq(3).addClass('highlight_yellow');
+            if ( data[2].replace(/[\$,]/g, '') * 1 > 0 ) {
+                $('td', row).eq(2).addClass('highlight_yellow');
             }
-            if ( data[5].replace(/[\$,]/g, '') * 1 > 0 ) {
-                $('td', row).eq(5).addClass('highlight_red');
+            if ( data[4].replace(/[\$,]/g, '') * 1 > 0 ) {
+                $('td', row).eq(4).addClass('highlight_red');
             }
         }
     });
