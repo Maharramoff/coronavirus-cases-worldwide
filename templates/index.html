@@ -44,7 +44,7 @@ $(document).ready(function() {
         },
         "createdRow": function ( row, data, index ) {
             if ( data[2].replace(/[\$,]/g, '') * 1 > 0 ) {
-                $('td', row).eq(2).addClass('highlight_yellow');
+                $('td', row).eq(2).addClass('highlight_maroon');
             }
             if ( data[4].replace(/[\$,]/g, '') * 1 > 0 ) {
                 $('td', row).eq(4).addClass('highlight_red');
