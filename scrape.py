@@ -59,7 +59,7 @@ class Coronavirus:
     def get_result(self):
         trs = self.find_all_trs()
         rows = []
-        for tr in trs[1:]:
+        for tr in trs[1:-1]:
             tds = self.__find_all_tds(tr)
             rows.append(tds[:6])
             if self.country not in self.__check_params and self.country in tds[0]:
