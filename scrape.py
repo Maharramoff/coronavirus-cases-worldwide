@@ -28,6 +28,11 @@ html = """
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.dataframe').DataTable();
+} );
+</script>
 </body>
 </html>
 """
@@ -68,5 +73,5 @@ def index():
     columns = ['Ölkə', 'Xəstələr', 'Yeni Xəstələr', 'Ölüm', 'Yeni Ölüm', 'Sağalıb']
     panda.set_option('display.max_rows', None)
     panda_table = panda.DataFrame(covid.get_result(), columns=columns)
-    return flask.render_template_string (html, table = panda_table.to_html (header = 'true', classes=['table', 'dataTable']))
+    return flask.render_template_string (html, table = panda_table.to_html (header = 'true', classes='table'))
 
