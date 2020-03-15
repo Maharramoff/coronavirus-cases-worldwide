@@ -76,6 +76,5 @@ def index():
     columns = ['Ölkə', 'Xəstələr', 'Yeni Xəstələr', 'Ölüm', 'Yeni Ölüm', 'Sağalıb']
     panda.set_option('display.max_rows', None)
     panda_table = panda.DataFrame(covid.get_result(), columns=columns)
-    panda_table.style.set_properties(**{'text-align': 'left'})
-    return flask.render_template_string (html, table = panda_table.to_html (header = 'true', classes='table', border = 0))
+    return flask.render_template_string (html, table = panda_table.to_html (header = 'true', classes='table', border = 0, justify='left'))
 
