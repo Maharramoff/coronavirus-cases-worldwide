@@ -6,10 +6,11 @@ import flask
 app = flask.Flask(__name__)
 
 html = """
-<! DOCTYPE html>
-<html lang = "en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset = "UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Confirmed Coronavirus Cases and Deaths by Country</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -17,7 +18,9 @@ html = """
 <div class="container p-3">
     <div class="row">
         <div class="col-12">
-            {{table | safe}}
+            <div class="table-responsive">
+                {{table | safe}}
+            </div>
         </div>
     </div>
 </div>
@@ -61,5 +64,5 @@ def index():
     columns = ['Ölkə', 'Xəstələr', 'Yeni Xəstələr', 'Ölüm', 'Yeni Ölüm', 'Sağalıb']
     panda.set_option('display.max_rows', None)
     panda_table = panda.DataFrame(covid.get_result(), columns=columns)
-    return flask.render_template_string (html, table = panda_table.to_html (header = 'true'))
+    return flask.render_template_string (html, table = panda_table.to_html (header = 'true', classes='table'))
 
