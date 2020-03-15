@@ -50,8 +50,8 @@ class Coronavirus:
     
 @app.route('/') 
 def index():
-    covid = Coronavirus('Azerbaijann')
-    columns = ['Ölkə', '| Xəstələr', '| Yeni X.', '| Ölüm', '| Yeni Ölüm', '| Sağalıb']
+    covid = Coronavirus('Azerbaijan')
+    columns = ['Ölkə', 'Xəstələr', 'Yeni Xəstələr', 'Ölüm', 'Yeni Ölüm', 'Sağalıb']
     panda.set_option('display.max_rows', None)
     panda_table = panda.DataFrame(covid.get_result(), columns=columns)
     return flask.render_template_string (html, table = panda_table.to_html (header = 'true'))
