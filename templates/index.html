@@ -41,6 +41,14 @@ $(document).ready(function() {
         "info":   false,
         language: {
             search: "Axtarış:"
+        },
+        "createdRow": function ( row, data, index ) {
+            if ( data[3].replace(/[\$,]/g, '') * 1 > 0 ) {
+                $('td', row).eq(3).addClass('highlight_yellow');
+            }
+            if ( data[5].replace(/[\$,]/g, '') * 1 > 0 ) {
+                $('td', row).eq(5).addClass('highlight_red');
+            }
         }
     });
 } );
