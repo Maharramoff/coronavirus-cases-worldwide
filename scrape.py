@@ -1,7 +1,9 @@
 import pandas as panda
 import requests
 from bs4 import BeautifulSoup
- 
+import flask
+
+app = flask.Flask(__name__)
  
 class Coronavirus:
     __check_params = [None, 'All']
@@ -31,10 +33,13 @@ class Coronavirus:
     @staticmethod
     def __find_all_tds(tr):
         return [td.get_text(strip=True) for td in tr.find_all('td')]
- 
- 
-covid = Coronavirus('Azerbaijann')
-columns = ['Ölkə', '| Xəstələr', '| Yeni X.', '| Ölüm', '| Yeni Ölüm', '| Sağalıb']
-panda.set_option('display.max_rows', None)
-panda_table = panda.DataFrame(covid.get_result(), columns=columns)
-print(panda_table)
+    
+    
+@app.route('/') 
+def index():
+    covid = Coronavirus('Azerbaijann')
+    columns = ['Ölkə', '| Xəstələr', '| Yeni X.', '| Ölüm', '| Yeni Ölüm', '| Sağalıb']
+    panda.set_option('display.max_rows', None)
+    panda_table = panda.DataFrame(covid.get_result(), columns=columns)
+    print(panda_table)
+
