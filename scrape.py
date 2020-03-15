@@ -41,5 +41,5 @@ def index():
     columns = ['Ölkə', '| Xəstələr', '| Yeni X.', '| Ölüm', '| Yeni Ölüm', '| Sağalıb']
     panda.set_option('display.max_rows', None)
     panda_table = panda.DataFrame(covid.get_result(), columns=columns)
-    print(panda_table)
+    return panda_table
 
