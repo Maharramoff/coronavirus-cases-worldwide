@@ -12,6 +12,10 @@ html = """
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Confirmed Coronavirus Cases and Deaths by Country</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.herokucdn.com/favicons/favicon.ico"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://www.herokucdn.com/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://www.herokucdn.com/favicons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="https://www.herokucdn.com/favicons/icon.svg" color="#79589F">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     
@@ -72,7 +76,7 @@ class Coronavirus:
     
 @app.route('/') 
 def index():
-    covid = Coronavirus('Azerbaijan')
+    covid = Coronavirus('All')
     columns = ['Ölkə', 'Xəstələr', 'Yeni Xəstələr', 'Ölüm', 'Yeni Ölüm', 'Sağalıb']
     panda.set_option('display.max_rows', None)
     panda_table = panda.DataFrame(covid.get_result(), columns=columns)
