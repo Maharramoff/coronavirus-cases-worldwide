@@ -6,7 +6,7 @@ import flask
 import json
 import time
 
-app = flask.Flask(__name__)
+app = flask.Flask(__name__, static_folder='static')
 
 
 class Coronavirus:
