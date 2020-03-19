@@ -12,9 +12,10 @@ def index():
     columns = ['Ölkə', 'Xəstələr', 'Yeni Xəstələr', 'Ölüm', 'Yeni Ölüm', 'Sağalıb']
     panda.set_option('display.max_rows', None)
     rows = covid.get_table_rows()
+    stats = {k: v.replace(',', '') for (k, v) in covid.get_stats().items()}
     panda_table = panda.DataFrame(rows, columns=columns)
     return flask.render_template('index.html',
-                                 mixed=rows,
+                                 stats=stats,
                                  table=panda_table.to_html(
                                      header='true',
                                      classes=['display', 'compact'],

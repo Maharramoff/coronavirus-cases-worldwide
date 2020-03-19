@@ -1,0 +1,25 @@
+.c-callout {
+    border-left: 4px solid #d8dbe0;
+}
+
+.c-callout-info {
+    border-left-color: #39f;
+}
+
+.c-callout-danger {
+    border-left-color: #e55353;
+}
+
+.c-callout-warning {
+    border-left-color: #f9b115;
+}
+
+.c-callout-success {
+    border-left-color: #2eb85c;
+}
+
+.c-callout {
+    position: relative;
+    padding: 0 0 0 1rem;
+    border-radius: .25rem;
+}

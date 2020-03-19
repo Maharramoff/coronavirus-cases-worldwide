@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
     <style type="text/css">
         td.highlight_red {
             color: #FF4136;
@@ -38,13 +39,189 @@
 </head>
 <body>
 <div class="container p-3">
+
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
+
+            <!--{{ stats }}-->
+
+            <!--Total Stat-->
+            <div class="card mb-3">
+
+                <div class="card-header">
+                    <h5 class="card-title mb-0 text-center">Dünya üzrə</h5>
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="c-callout">
+                                <strong class="text-muted">Yoluxma faktı</strong>
+                                <div class="text-value-lg">{{ stats.total_cases }}</div>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="c-callout c-callout-danger">
+                                <strong class="text-muted">Ölüm faktı</strong>
+                                <div class="text-value-lg">{{ stats.total_deaths }}</div>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="c-callout c-callout-success">
+                                <strong class="text-muted">Sağalıb</strong>
+                                <div class="text-value-lg">{{ stats.total_recovered }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="card mb-3">
+
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Aktiv faktlar</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">{{ stats.active_cases }}</h5>
+                            <div class="text-muted">Hal hazırda yoluxmuş xəstələr</div>
+                        </div>
+
+                        <div class="card-footer">
+
+                            <div class="row">
+
+                                <div class="col-12 mb-sm-2 mb-0">
+
+                                    <span class="text-muted">Vəziyyəti mülayim</span>
+
+                                    {% set mild_condition = stats.active_cases|int - stats.critical_cases|int %}
+                                    {% set mild_percent = (mild_condition/stats.active_cases|int * 100)|round|int %}
+
+
+                                    <strong class="float-right font-weight-bold">{{ mild_condition }}
+                                        <span class="text-muted small">({{ mild_percent }}%)</span>
+                                    </strong>
+
+                                    <div class="progress mt-2" style="height: 10px">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                             role="progressbar"
+                                             aria-valuenow="{{ mild_percent }}" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: {{ mild_percent }}%">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-12 mb-sm-2 mb-0">
+
+                                    <span class="text-muted">Vəziyyəti ağır</span>
+
+                                    {% set critical_percent = (stats.critical_cases|int / stats.active_cases|int * 100)|round|int %}
+
+                                    <strong class="float-right font-weight-bold">{{ stats.critical_cases }}
+                                        <span class="text-muted small">({{ critical_percent }}%)</span>
+                                    </strong>
+
+                                    <div class="progress mt-2" style="height: 10px">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                                             role="progressbar"
+                                             aria-valuenow="{{ critical_percent }}" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: {{ critical_percent }}%">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="card mb-3">
+
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Bağlı faktlar</h5>
+                        </div>
+
+                        {% set closed_cases = stats.total_cases|int - stats.active_cases|int %}
+
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">{{ closed_cases }}</h5>
+                            <div class="text-muted">Nəticəsi məlum olan hallar</div>
+                        </div>
+
+                        <div class="card-footer">
+
+                            <div class="row">
+
+                                <div class="col-12 mb-sm-2 mb-0">
+
+                                    <span class="text-muted">Sağalıb</span>
+
+                                    {% set recovered_percent = (stats.total_recovered|int / closed_cases * 100)|round|int %}
+
+                                    <strong class="float-right font-weight-bold">{{ stats.total_recovered }}
+                                        <span class="text-muted small">({{ recovered_percent }}%)</span>
+                                    </strong>
+
+                                    <div class="progress mt-2" style="height: 10px">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                                             role="progressbar"
+                                             aria-valuenow="{{ recovered_percent }}" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: {{ recovered_percent }}%">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-12 mb-sm-2 mb-0">
+
+                                    <span class="text-muted">Ölüb</span>
+
+                                    {% set death_percent = (stats.total_deaths|int / closed_cases * 100)|round|int %}
+
+                                    <strong class="float-right font-weight-bold">{{ stats.total_deaths }}
+                                        <span class="text-muted small">({{ death_percent }}%)</span>
+                                    </strong>
+
+                                    <div class="progress mt-2" style="height: 10px">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                             role="progressbar"
+                                             aria-valuenow="{{ death_percent }}" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: {{ death_percent }}%">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
             <div class="table-responsive">
                 {{table | safe}}
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
             <hr>
