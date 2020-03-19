@@ -11,7 +11,7 @@ def index():
     covid = Coronavirus('All')
     columns = ['Ölkə', 'Xəstələr', 'Yeni Xəstələr', 'Ölüm', 'Yeni Ölüm', 'Sağalıb']
     panda.set_option('display.max_rows', None)
-    rows = covid.get_result()
+    rows = covid.get_table_rows()
     panda_table = panda.DataFrame(rows, columns=columns)
     return flask.render_template('index.html',
                                  mixed=rows,

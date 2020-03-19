@@ -62,21 +62,32 @@ class Coronavirus:
     __website_url = 'https://www.worldometers.info/coronavirus/'
     __cache_ttl = 15 * 60
     __cache_file = 'cache/data.json'
+    __trs = None
+    __cache_data = None
 
     def __init__(self, country=None):
         self.country = country
         self.cache = Cache(self.__cache_file)
         self.table_scraper = TableScraper(self.__website_url, self.__table_attribute, self.__attribute_value)
+        self.__prepare_data()
 
-    def get_result(self):
-        if None is not self.cache.time_diff() < self.__cache_ttl:
+    def get_table_rows(self):
+        if self.__cache_data is not None:
             return self.cache.get()
-        trs = self.table_scraper.get_trs()
         rows = []
-        for tr in trs[1:-1]:
-            tds = self.table_scraper.get_tds(tr)
-            rows.append(tds[:6])
-            if self.country not in self.__check_params and self.country in tds[0]:
-                return [tds[:6]]
-        self.cache.set(rows)
+        if self.__trs is not None:
+            for tr in self.__trs[1:-1]:
+                tds = self.table_scraper.get_tds(tr)
+                rows.append(tds[:6])
+                if self.country not in self.__check_params and self.country in tds[0]:
+                    return [tds[:6]]
+            self.cache.set(rows)
         return rows
+
+    def __prepare_data(self) -> None:
+        if None is not self.cache.time_diff() < self.__cache_ttl:
+            self.__cache_data = self.cache.get()
+        else:
+            self.__trs = self.table_scraper.get_trs()
+        pass
+
