@@ -33,27 +33,48 @@ class Cache:
             return None
 
 
+class TableScraper:
+    table = []
+
+    def __init__(self, url, attr, value):
+        self.url = url
+        self.attr = attr
+        self.value = value
+
+    def get_data(self):
+        html = requests.get(self.url)
+        soup = BeautifulSoup(html.text, 'html.parser')
+        return soup.find('table', {self.attr: self.value})
+
+    def get_trs(self):
+        table = self.get_data()
+        return [] if table is None else table.find_all('tr')
+
+    @staticmethod
+    def get_tds(tr):
+        return [td.get_text(strip=True) for td in tr.find_all('td')]
+
+
 class Coronavirus:
     __check_params = [None, 'All']
     __table_attribute = 'id'
     __attribute_value = 'main_table_countries_today'
     __website_url = 'http://www.worldometers.info/coronavirus'
-    __result = []
     __cache_ttl = 15 * 60
     __cache_file = 'cache/data.json'
 
     def __init__(self, country=None):
         self.country = country
         self.cache = Cache(self.__cache_file)
+        self.table_scraper = TableScraper(self.__website_url, self.__table_attribute, self.__attribute_value)
 
     def get_result(self):
         if None is not self.cache.time_diff() < self.__cache_ttl:
             return self.__get_local_data()
-        table = self.__get_remote_data()
-        trs = self.__find_all_trs(table)
+        trs = self.table_scraper.get_trs()
         rows = []
         for tr in trs[1:-1]:
-            tds = self.__find_all_tds(tr)
+            tds = self.table_scraper.get_tds(tr)
             rows.append(tds[:6])
             if self.country not in self.__check_params and self.country in tds[0]:
                 return [tds[:6]]
@@ -61,17 +82,7 @@ class Coronavirus:
         return rows
 
     def __get_remote_data(self):
-        html = requests.get(self.__website_url)
-        soup = BeautifulSoup(html.text, 'html.parser')
-        return soup.find('table', {self.__table_attribute: self.__attribute_value})
+        return self.table_scraper.get_data()
 
     def __get_local_data(self):
         return self.cache.get()
-
-    @staticmethod
-    def __find_all_trs(table):
-        return [] if table is None else table.find_all('tr')
-
-    @staticmethod
-    def __find_all_tds(tr):
-        return [td.get_text(strip=True) for td in tr.find_all('td')]
