@@ -38,6 +38,7 @@ class Coronavirus:
     def cache_set(self, rows) -> None:
         if len(rows) == 0:
             return None
+        os.makedirs(os.path.dirname(self.__cache_file), exist_ok=True)
         with open(self.__cache_file, 'w+', encoding='utf-8') as f:
             json.dump(rows, f, ensure_ascii=False, indent=4)
         pass
