@@ -59,7 +59,7 @@ class Coronavirus:
     __check_params = [None, 'All']
     __table_attribute = 'id'
     __attribute_value = 'main_table_countries_today'
-    __website_url = 'http://www.worldometers.info/coronavirus'
+    __website_url = 'https://www.worldometers.info/coronavirus/'
     __cache_ttl = 15 * 60
     __cache_file = 'cache/data.json'
 
@@ -70,7 +70,7 @@ class Coronavirus:
 
     def get_result(self):
         if None is not self.cache.time_diff() < self.__cache_ttl:
-            return self.__get_local_data()
+            return self.cache.get()
         trs = self.table_scraper.get_trs()
         rows = []
         for tr in trs[1:-1]:
@@ -80,9 +80,3 @@ class Coronavirus:
                 return [tds[:6]]
         self.cache.set(rows)
         return rows
-
-    def __get_remote_data(self):
-        return self.table_scraper.get_data()
-
-    def __get_local_data(self):
-        return self.cache.get()
