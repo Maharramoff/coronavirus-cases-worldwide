@@ -15,7 +15,7 @@ class Coronavirus:
     __attribute_value = 'main_table_countries_today'
     __website_url = 'http://www.worldometers.info/coronavirus'
     __result = []
-    __cache_ttl = 15 * 1
+    __cache_ttl = 15 * 60
     __cache_file = 'cache/data.json'
 
     def __init__(self, country=None):
