@@ -56,21 +56,21 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="c-callout">
-                                <strong class="text-muted">Yoluxma faktı</strong>
+                                <strong class="text-muted">Yoluxma</strong>
                                 <div class="text-value-lg">{{ stats.total_cases }}</div>
                             </div>
                         </div>
 
                         <div class="col-4">
                             <div class="c-callout c-callout-danger">
-                                <strong class="text-muted">Ölüm faktı</strong>
+                                <strong class="text-muted">Ölüm</strong>
                                 <div class="text-value-lg">{{ stats.total_deaths }}</div>
                             </div>
                         </div>
 
                         <div class="col-4">
                             <div class="c-callout c-callout-success">
-                                <strong class="text-muted">Sağalıb</strong>
+                                <strong class="text-muted">Sağalma</strong>
                                 <div class="text-value-lg">{{ stats.total_recovered }}</div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                     <div class="card mb-3">
 
                         <div class="card-header">
-                            <h5 class="card-title mb-0">Aktiv faktlar</h5>
+                            <h5 class="card-title mb-0">Aktiv hallar</h5>
                         </div>
 
                         <div class="card-body">
@@ -151,7 +151,7 @@
                     <div class="card mb-3">
 
                         <div class="card-header">
-                            <h5 class="card-title mb-0">Bağlı faktlar</h5>
+                            <h5 class="card-title mb-0">Bağlı hallar</h5>
                         </div>
 
                         {% set closed_cases = stats.total_cases|int - stats.active_cases|int %}
@@ -167,7 +167,7 @@
 
                                 <div class="col-12 mb-sm-2 mb-0">
 
-                                    <span class="text-muted">Sağalıb</span>
+                                    <span class="text-muted">Sağalma</span>
 
                                     {% set recovered_percent = (stats.total_recovered|int / closed_cases * 100)|round|int %}
 
@@ -187,7 +187,7 @@
 
                                 <div class="col-12 mb-sm-2 mb-0">
 
-                                    <span class="text-muted">Ölüb</span>
+                                    <span class="text-muted">Ölüm</span>
 
                                     {% set death_percent = (stats.total_deaths|int / closed_cases * 100)|round|int %}
 
