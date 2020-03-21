@@ -23,3 +23,33 @@
     padding: 0 0 0 1rem;
     border-radius: .25rem;
 }
+
+/* Datatable */
+td.highlight_red {
+    color: #FF4136;
+}
+
+td.highlight_yellow {
+    color: #FFDC00;
+}
+
+td.highlight_orange {
+    color: #FF851B;
+}
+
+td.highlight_maroon {
+    color: #85144b;
+}
+
+td.bottom_red {
+    border-bottom: 2px solid red
+}
+
+/*
+.dataTables_scrollHeadInner {
+    width: 100% !important;
+}
+
+.dataTables_scrollHeadInner table {
+    width: 100% !important;
+}*/

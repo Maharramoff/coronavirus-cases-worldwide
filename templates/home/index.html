@@ -1,9 +1,10 @@
-{% include 'header.html' %}
+{% extends 'layouts/master.html' %}
+{% block content %}
 
 <div class="container p-3">
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
+        <div class="col-12 mx-auto">
 
             <!--{{ stats }}-->
 
@@ -185,9 +186,9 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
+        <div class="col-12 mx-auto">
             <hr>
-            <p class="text-center" style="margin-bottom: 18px;">Made in <img src="../static/images/flag-az.svg"
+            <p class="text-center" style="margin-bottom: 18px;">Made in <img src="/static/images/flag-az.svg"
                                                                              width="20" alt="Azerbaijan"> by <a
                     href="https://github.com/maharramoff" target="_blank">Maharramoff</a></p>
             <p class="text-center" style="margin-bottom: 18px;">Please <a
@@ -197,4 +198,4 @@
     </div>
 </div>
 
-{% include 'footer.html' %}
+{% endblock %}

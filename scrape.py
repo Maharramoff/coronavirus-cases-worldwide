@@ -14,7 +14,7 @@ def index():
     rows = covid.get_table_rows()
     stats = {k: v.replace(',', '') for (k, v) in covid.get_stats().items()}
     panda_table = panda.DataFrame(rows, columns=columns)
-    return flask.render_template('index.html',
+    return flask.render_template('home/index.html',
                                  stats=stats,
                                  table=panda_table.to_html(
                                      header='true',

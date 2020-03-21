@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Confirmed Coronavirus Cases and Deaths by Country</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/static/favicons/favicon.ico"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/static/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/static/favicons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="https://www.herokucdn.com/favicons/icon.svg" color="#79589F">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css?v=1.0">
+    <link rel="stylesheet" href="/static/css/theme.css?v=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
+    <link rel="stylesheet" href="/static/css/custom.css?v=1.0">
+</head>
+<body>
+<div class="wrapper d-flex align-items-stretch">
+    {% include 'layouts/sidebar.html' %}
+    <div id="content" class="p-md-5 pt-5">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+{% include 'layouts/js.html' %}
+</body>
+</html>
