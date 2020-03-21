@@ -16,7 +16,7 @@
         $('#sidebar').toggleClass('active');
     });
 
-    $('.dataframe').DataTable({
+    $('#covid').DataTable({
         paging: false,
         fixedHeader: false,
         autoWidth: false,

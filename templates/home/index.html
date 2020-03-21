@@ -86,7 +86,8 @@
 
                                     <span class="text-muted">Vəziyyəti ağır</span>
 
-                                    {% set critical_percent = (stats.critical_cases|int / stats.active_cases|int * 100)|round|int %}
+                                    {% set critical_percent = (stats.critical_cases|int / stats.active_cases|int *
+                                    100)|round|int %}
 
                                     <strong class="float-right font-weight-bold">{{ stats.critical_cases }}
                                         <span class="text-muted small">({{ critical_percent }}%)</span>
@@ -95,7 +96,8 @@
                                     <div class="progress mt-2" style="height: 10px">
                                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
                                              role="progressbar"
-                                             aria-valuenow="{{ critical_percent }}" aria-valuemin="0" aria-valuemax="100"
+                                             aria-valuenow="{{ critical_percent }}" aria-valuemin="0"
+                                             aria-valuemax="100"
                                              style="width: {{ critical_percent }}%">
                                         </div>
                                     </div>
@@ -132,7 +134,8 @@
 
                                     <span class="text-muted">Sağalma</span>
 
-                                    {% set recovered_percent = (stats.total_recovered|int / closed_cases * 100)|round|int %}
+                                    {% set recovered_percent = (stats.total_recovered|int / closed_cases *
+                                    100)|round|int %}
 
                                     <strong class="float-right font-weight-bold">{{ stats.total_recovered }}
                                         <span class="text-muted small">({{ recovered_percent }}%)</span>
@@ -141,7 +144,8 @@
                                     <div class="progress mt-2" style="height: 10px">
                                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
                                              role="progressbar"
-                                             aria-valuenow="{{ recovered_percent }}" aria-valuemin="0" aria-valuemax="100"
+                                             aria-valuenow="{{ recovered_percent }}" aria-valuemin="0"
+                                             aria-valuemax="100"
                                              style="width: {{ recovered_percent }}%">
                                         </div>
                                     </div>
@@ -178,9 +182,27 @@
 
             </div>
 
-
             <div class="table-responsive">
-                {{table | safe}}
+                <table id="covid" class="display compact">
+                    <thead>
+                    <tr>
+                        {% for col in columns %}
+                        <th>{{ col }}</th>
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in rows %}
+                    <tr class="{{ loop.cycle('odd', 'even') }}">
+                        {% set rowloop = loop %}
+                        {% for col in row %}
+                        <td id="cell-{{ rowloop.index }}-{{ loop.index }}">{{ col }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </div>
