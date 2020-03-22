@@ -2,7 +2,7 @@
 
 COVID-19 virusu ilə bağlı real zaman ərzində məlumatın əldə olunması üçün API
 
-Məlumatlar 5 dəqiqə intervallar yenilənir.
+Məlumatlar 5 dəqiqə intervalla yenilənir.
 
 Sorğu nümunələri:
 
