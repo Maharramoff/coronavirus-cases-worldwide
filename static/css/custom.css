@@ -55,7 +55,7 @@ td.bottom_red {
 }
 
 .navbar-light .navbar-toggler, .navbar-collapse {
-    z-index: 1;
+    z-index: 9;
 }
 
 /*div.dataTables_wrapper {
