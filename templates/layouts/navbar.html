@@ -1,0 +1,23 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                <i class="fas fa-bars" style="color:#866ec7; font-size:28px;"></i>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="d-none d-lg-block" href="/"><img src="/static/images/covid19.png" height="50px"  alt="covid19"/></a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item {% if url_for(request.endpoint) == '/' %}active{% endif %}">
+                    <a class="nav-link" href="/">Baş səhifə</a>
+                </li>
+                <li class="nav-item {% if url_for(request.endpoint) == '/covid' %}active{% endif %}">
+                    <a class="nav-link" href="/covid">Koronavirus </a>
+                </li>
+            </ul>
+        </div>
+        <div class="d-xl-none d-lg-none logo"><img src="/static/images/covid19.png" height="50px" alt="logo"></div>
+    </div>
+</nav>

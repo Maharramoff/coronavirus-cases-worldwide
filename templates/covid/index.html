@@ -1,91 +1,88 @@
 {% extends 'layouts/master.html' %}
 {% block content %}
 
-<div class="row">
-    <div class="container">
-        <div id="accordion">
-            <div class="card">
 
-                <div class="card-header" id="headingOne">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                aria-expanded="true" aria-controls="collapseOne">
-                            COVID-19 nədir ?
-                        </button>
-                    </h5>
-                </div>
+<div id="accordion">
+    <div class="card">
 
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
-                        <p>
-                            Koronaviruslar (CoV), adi soyuqdəymə əlamətlərindən Yaxın Şərq Respirator Sindromu ( Middle
-                            East
-                            Respiratory Syndrome Coronavirus – MERS – CoV) və Şiddətli Kəskin Respirator Sindrom (SARS –
-                            CoV) kimi daha ciddi patologiyalara qədər çeşidli xəstəliklərə səbəb olan böyük bir virus
-                            fəsiləsidir.
-                        </p>
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                    COVID-19 nədir ?
+                </button>
+            </h5>
+        </div>
 
-                        <p>
-                            Koronaviruslar zoonoz infeksiya kimi heyvanlardan yoluxaraq insanlarda xəstəlik törədə
-                            bilir.
-                            Ətraflı araşdırmalar nəticəsində, SARS-CoV-un müşk pişiklərindən, MERS-CoV-un isə tək
-                            hürgüclü
-                            dəvələrdən insanlara yoluxduğu məlum olmuşdur. Hazırda insanlara yoluxmayan, ancaq
-                            heyvanlarda
-                            rast gəlinən bir çox koronavirus tipi mövcuddur.
-                        </p>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <p>
+                    Koronaviruslar (CoV), adi soyuqdəymə əlamətlərindən Yaxın Şərq Respirator Sindromu ( Middle
+                    East
+                    Respiratory Syndrome Coronavirus – MERS – CoV) və Şiddətli Kəskin Respirator Sindrom (SARS –
+                    CoV) kimi daha ciddi patologiyalara qədər çeşidli xəstəliklərə səbəb olan böyük bir virus
+                    fəsiləsidir.
+                </p>
 
-                        <p>
-                            31 dekabr 2019-cu ildə Ümumdünya Səhiyyə Təşkilatı (ÜST) Çin Ölkə Ofisi Çinin Hubei
-                            əyalətinin
-                            Wuhan şəhərində etiologiyası naməlum olan pnevmoniya ilə xəstələnmə halları haqqında məlumat
-                            vermişdir. 7 Yanvar 2020-ci ildə isə bu fakt daha əvvəllər insanlarda rast gəlinməmiş yeni
-                            bir
-                            koronavirus (2019 Novel Coronavirus COVID-19) olaraq təsdiqlənmişdir.
-                        </p>
-                    </div>
-                </div>
+                <p>
+                    Koronaviruslar zoonoz infeksiya kimi heyvanlardan yoluxaraq insanlarda xəstəlik törədə
+                    bilir.
+                    Ətraflı araşdırmalar nəticəsində, SARS-CoV-un müşk pişiklərindən, MERS-CoV-un isə tək
+                    hürgüclü
+                    dəvələrdən insanlara yoluxduğu məlum olmuşdur. Hazırda insanlara yoluxmayan, ancaq
+                    heyvanlarda
+                    rast gəlinən bir çox koronavirus tipi mövcuddur.
+                </p>
 
-                <div class="card-header" id="headingTwo">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                                aria-expanded="false" aria-controls="collapseTwo">
-                            Virusun yayılması
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                    <div class="card-body">
-                        2019‑nCoV xəstəliyinə yoluxmuş insan asanlıqla bu xəstəliyi başqasına yoluxdura bilər.
-                        COVID‑19 virusuna yoluxmuş şəxsin asqırması və ya öskürməsi zamanı ağız və burun boşluğundan
-                        havaya buraxılan kiçik damcılar vasitəsilə virus yayılaraq digər insanlara keçə bilər. Bu
-                        damcının başqasının nəfəs yoluna düşməsi nəticəsində baş verir. Eyni zamanda bu damcılar ətrafda
-                        yerləşən əşyalara və səthlərə düşür. İnsanlar həmin əşyalara və ya səthlərə toxunduqdan sonra
-                        gözə, burun və ya ağıza toxunaraq virusa yoluxa bilərlər. Bu səbəbdən xəstələnmiş şəxslə 1
-                        metrdən artıq məsafə saxlamaq və üz nahiyəsinə toxunmazdan əvvəl əlləri yumaq çox vacibdir.
-                    </div>
-                </div>
-
-                <div class="card-header" id="headingThree">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                                aria-expanded="false" aria-controls="collapseThree">
-                            Bir şəxsdən digərinə birbaşa yoluxması
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                    <div class="card-body">
-                        Virusun əsasən birbaşa olaraq insandan insana yoluxması ehtimal edilir.
-                        • Bir-birinə təxminən iki metr yaxınlıqda olan insanlar arasında.
-                        • Yoluxmuş şəxsin öskürməsi və asqırması zamanı nəfəs yollarından yayılan damcılar vasitəsilə.
-                        Bu damcılar ətrafda olan insanların ağızlarına yaxud burunlarına düşə və buradan da ağciyərlərə
-                        düşə bilər.
-                    </div>
-                </div>
-
+                <p>
+                    31 dekabr 2019-cu ildə Ümumdünya Səhiyyə Təşkilatı (ÜST) Çin Ölkə Ofisi Çinin Hubei
+                    əyalətinin
+                    Wuhan şəhərində etiologiyası naməlum olan pnevmoniya ilə xəstələnmə halları haqqında məlumat
+                    vermişdir. 7 Yanvar 2020-ci ildə isə bu fakt daha əvvəllər insanlarda rast gəlinməmiş yeni
+                    bir
+                    koronavirus (2019 Novel Coronavirus COVID-19) olaraq təsdiqlənmişdir.
+                </p>
             </div>
         </div>
+
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                    Virusun yayılması
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                2019‑nCoV xəstəliyinə yoluxmuş insan asanlıqla bu xəstəliyi başqasına yoluxdura bilər.
+                COVID‑19 virusuna yoluxmuş şəxsin asqırması və ya öskürməsi zamanı ağız və burun boşluğundan
+                havaya buraxılan kiçik damcılar vasitəsilə virus yayılaraq digər insanlara keçə bilər. Bu
+                damcının başqasının nəfəs yoluna düşməsi nəticəsində baş verir. Eyni zamanda bu damcılar ətrafda
+                yerləşən əşyalara və səthlərə düşür. İnsanlar həmin əşyalara və ya səthlərə toxunduqdan sonra
+                gözə, burun və ya ağıza toxunaraq virusa yoluxa bilərlər. Bu səbəbdən xəstələnmiş şəxslə 1
+                metrdən artıq məsafə saxlamaq və üz nahiyəsinə toxunmazdan əvvəl əlləri yumaq çox vacibdir.
+            </div>
+        </div>
+
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="false" aria-controls="collapseThree">
+                    Bir şəxsdən digərinə birbaşa yoluxması
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+                Virusun əsasən birbaşa olaraq insandan insana yoluxması ehtimal edilir.
+                • Bir-birinə təxminən iki metr yaxınlıqda olan insanlar arasında.
+                • Yoluxmuş şəxsin öskürməsi və asqırması zamanı nəfəs yollarından yayılan damcılar vasitəsilə.
+                Bu damcılar ətrafda olan insanların ağızlarına yaxud burunlarına düşə və buradan da ağciyərlərə
+                düşə bilər.
+            </div>
+        </div>
+
     </div>
 </div>
 

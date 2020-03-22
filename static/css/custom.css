@@ -42,8 +42,26 @@ td.highlight_maroon {
 }
 
 td.bottom_red {
-    border-bottom: 2px solid red
+    border-bottom: 2px solid red !important;
 }
+
+.logo {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 10px;
+    bottom: 0;
+    text-align: center;
+}
+
+.navbar-light .navbar-toggler {
+    z-index: 1;
+}
+
+/*div.dataTables_wrapper {
+    width: 100%;
+    margin: 0 auto;
+}*/
 
 /*
 .dataTables_scrollHeadInner {
