@@ -52,6 +52,8 @@ td.bottom_red {
     top: 10px;
     bottom: 0;
     text-align: center;
+    z-index: 0;
+    height: 0;
 }
 
 .navbar-light .navbar-toggler {
@@ -60,6 +62,10 @@ td.bottom_red {
 
 .navbar-collapse {
     z-index: 10;
+}
+
+.navbar-nav {
+    z-index: 11;
 }
 
 /*div.dataTables_wrapper {
