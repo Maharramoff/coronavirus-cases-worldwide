@@ -54,8 +54,12 @@ td.bottom_red {
     text-align: center;
 }
 
-.navbar-light .navbar-toggler, .navbar-collapse {
+.navbar-light .navbar-toggler {
     z-index: 9;
+}
+
+.navbar-collapse {
+    z-index: 10;
 }
 
 /*div.dataTables_wrapper {
