@@ -20,8 +20,7 @@ def home():
 @app.route('/covid')
 def covid():
     data = Cache('static/data/covid.json')
-    return flask.render_template('covid/index.html', data=data.get())\
-
+    return flask.render_template('covid/index.html', data=data.get())
 
 
 @app.route('/api/')
