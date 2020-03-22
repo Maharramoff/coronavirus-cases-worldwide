@@ -20,4 +20,21 @@ def home():
 @app.route('/covid')
 def covid():
     data = Cache('static/data/covid.json')
-    return flask.render_template('covid/index.html', data=data.get())
+    return flask.render_template('covid/index.html', data=data.get())\
+
+
+
+@app.route('/api/')
+@app.route('/api/<stats>')
+def api(stats=None):
+    columns = [
+        'country',
+        'total_cases',
+        'new_cases',
+        'total_deaths',
+        'new_deaths',
+        'total_recovered',
+    ]
+    covid19 = Coronavirus()
+    result = [dict(zip(columns, row)) for row in covid19.get_table_rows()] if stats is None else covid19.get_stats()
+    return flask.jsonify(result)
