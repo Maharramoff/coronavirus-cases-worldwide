@@ -54,7 +54,7 @@ td.bottom_red {
     text-align: center;
 }
 
-.navbar-light .navbar-toggler {
+.navbar-light .navbar-toggler, .navbar-collapse {
     z-index: 1;
 }
 
