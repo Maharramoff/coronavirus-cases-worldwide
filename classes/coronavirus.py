@@ -13,7 +13,6 @@ class Coronavirus:
     __cache_data = None
     __cache_stats_data = None
     __stats_columns = [
-        'total_title',
         'total_cases',
         'new_cases',
         'total_deaths',
@@ -50,7 +49,7 @@ class Coronavirus:
         rows = []
         if self.__trs is not None:
             tds = self.table_scraper.get_tds(self.__trs[-1])
-            rows = dict(zip(self.__stats_columns, tds))
+            rows = dict(zip(self.__stats_columns, tds[1:]))
             self.cache_stat.set(rows)
         return rows
 
