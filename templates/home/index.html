@@ -10,24 +10,24 @@
 
     <div class="card-body">
         <div class="row">
-            <div class="col-4">
+            <div class="col-md-4 col-sm-auto mb-md-0 mb-2">
                 <div class="c-callout">
-                    <strong class="text-muted">Yoluxma</strong>
-                    <div class="text-value-lg">{{ stats.total_cases }}</div>
+                    <h5 class="card-title mb-0">{{ stats.total_cases }}</h5>
+                    <div class="text-muted">Yoluxma</div>
                 </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-md-4 col-sm-auto mb-md-0 mb-2">
                 <div class="c-callout c-callout-danger">
-                    <strong class="text-muted">Ölüm</strong>
-                    <div class="text-value-lg">{{ stats.total_deaths }}</div>
+                    <h5 class="card-title mb-0">{{ stats.total_deaths }}</h5>
+                    <div class="text-muted">Ölüm</div>
                 </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-md-4 col-sm-auto mb-md-0 mb-2">
                 <div class="c-callout c-callout-success">
-                    <strong class="text-muted">Sağalma</strong>
-                    <div class="text-value-lg">{{ stats.total_recovered }}</div>
+                    <h5 class="card-title mb-0">{{ stats.total_recovered }}</h5>
+                    <div class="text-muted">Sağalma</div>
                 </div>
             </div>
         </div>
@@ -175,27 +175,31 @@
 
 </div>
 
-<div class="table-responsive">
-    <table id="covid" class="display compact">
-        <thead>
-        <tr>
-            {% for col in columns %}
-            <th>{{ col }}</th>
-            {% endfor %}
-        </tr>
-        </thead>
-        <tbody>
-        {% for row in rows %}
-        <tr class="{{ loop.cycle('odd', 'even') }}">
-            {% set rowloop = loop %}
-            {% for col in row %}
-            <td id="cell-{{ rowloop.index }}-{{ loop.index }}">{{ col }}</td>
-            {% endfor %}
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
+<div class="row">
+    <div class="col-12 mx-auto">
+        <div class="table-responsive">
+            <table id="covid" class="display nowrap compact">
+                <thead>
+                <tr>
+                    {% for col in columns %}
+                    <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in rows %}
+                <tr class="{{ loop.cycle('odd', 'even') }}">
+                    {% set rowloop = loop %}
+                    {% for col in row %}
+                    <td id="cell-{{ rowloop.index }}-{{ loop.index }}">{{ col }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
 
 {% endblock %}
