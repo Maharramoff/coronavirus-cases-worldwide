@@ -27,7 +27,7 @@ class Cache:
 
     def get(self):
         try:
-            with open(self.file) as json_file:
+            with open(self.file, encoding="utf8") as json_file:
                 return json.load(json_file)
         except EnvironmentError:
             return None
