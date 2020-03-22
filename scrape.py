@@ -1,6 +1,6 @@
 import flask
 
-from classes.coronavirus import Coronavirus, Cache
+from classes import Coronavirus, Cache
 
 app = flask.Flask(__name__, static_folder='static')
 
@@ -19,5 +19,5 @@ def home():
 
 @app.route('/covid')
 def covid():
-    data = Cache('cache/covid.json')
+    data = Cache('static/data/covid.json')
     return flask.render_template('covid/index.html', data=data.get())
