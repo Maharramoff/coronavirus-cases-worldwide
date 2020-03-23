@@ -8,7 +8,7 @@ class Cabmin:
     __stop_word = "article/675"
     __raw_article = True
     __search_words = ['koronavirus', 'məqsədilə']
-    __cache_ttl = 5 * 60
+    __cache_ttl = 30 * 60
     __cache_file = 'cache/news.json'
 
     def __init__(self, news_limit=20):
