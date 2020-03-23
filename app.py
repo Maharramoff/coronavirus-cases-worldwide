@@ -1,6 +1,6 @@
 import flask
 
-from classes import Coronavirus, Cache, Api
+from classes import Coronavirus, Cache, Api, Cabmin
 
 app = flask.Flask(__name__, static_folder='static')
 app.config['JSON_AS_ASCII'] = False
@@ -24,7 +24,13 @@ def covid():
     return flask.render_template('covid/index.html', data=data.get())
 
 
+@app.route('/news')
+def news():
+    cabmin = Cabmin(news_limit=30)
+    return flask.render_template('news/index.html', data=cabmin.news())
+
+
 @app.route('/api/')
 @app.route('/api/<params>')
 def api(params=None):
-    return flask.jsonify(Api(params, Cache, Coronavirus).response())
+    return flask.jsonify(Api(params).response())

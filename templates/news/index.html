@@ -1,7 +1,13 @@
 {% extends 'layouts/master.html' %}
 {% block content %}
 
-
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <img class="mx-auto d-block img-fluid" src="/static/images/cabmin-logo.png" alt="cabmin" style="margin-bottom: 20px">
+        </div>
+    </div>
+</div>
 <div id="accordion">
     <div class="card">
 
@@ -10,13 +16,15 @@
             <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ loop.index }}"
                         aria-expanded="true" aria-controls="collapse{{ loop.index }}" style="text-align: left;">
-                    {{ row[0] }}
+                    {%- if row.title -%}
+                       {{ row.title }}
+                    {%- endif -%}
                 </button>
             </h5>
         </div>
         <div id="collapse{{ loop.index }}" class="collapse" aria-labelledby="heading{{ loop.index }}" data-parent="#accordion">
             <div class="card-body">
-                {{ row[1] | safe }}
+                {{ row.body | safe }}
             </div>
         </div>
         {% endfor %}
