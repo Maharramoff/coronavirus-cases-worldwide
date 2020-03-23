@@ -1,18 +1,19 @@
-import json
+from classes import Coronavirus, Cache, Cabmin
 
 
 class Api:
 
-    def __init__(self, params, cache, coronavirus):
+    def __init__(self, params):
         self.params = params
-        self.cache = cache
-        self.coronavirus = coronavirus()
+        self.coronavirus = Coronavirus()
 
     def response(self) -> list:
         if self.params == 'stats':
             result = self.coronavirus.get_stats()
         elif self.params == 'articles':
-            result = self.cache('static/data/covid.json').get()
+            result = Cache('static/data/covid.json').get()
+        elif self.params == 'news':
+            result = Cabmin(news_limit=30).news()
         else:
             columns = [
                 'country',
