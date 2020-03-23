@@ -1,8 +1,9 @@
 import flask
 
-from classes import Coronavirus, Cache
+from classes import Coronavirus, Cache, Api
 
 app = flask.Flask(__name__, static_folder='static')
+app.config['JSON_AS_ASCII'] = False
 
 
 @app.route('/')
@@ -24,16 +25,6 @@ def covid():
 
 
 @app.route('/api/')
-@app.route('/api/<stats>')
-def api(stats=None):
-    columns = [
-        'country',
-        'total_cases',
-        'new_cases',
-        'total_deaths',
-        'new_deaths',
-        'total_recovered',
-    ]
-    covid19 = Coronavirus()
-    result = [dict(zip(columns, row)) for row in covid19.get_table_rows()] if stats is None else covid19.get_stats()
-    return flask.jsonify(result)
+@app.route('/api/<params>')
+def api(params=None):
+    return flask.jsonify(Api(params, Cache, Coronavirus).response())
