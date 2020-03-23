@@ -6,7 +6,7 @@ class Coronavirus:
     __table_attribute = 'id'
     __attribute_value = 'main_table_countries_today'
     __website_url = 'https://www.worldometers.info/coronavirus/'
-    __cache_ttl = 5 * 60
+    __cache_ttl = 10 * 60
     __cache_file = 'cache/data.json'
     __cache_stat_file = 'cache/stat.json'
     __trs = None
