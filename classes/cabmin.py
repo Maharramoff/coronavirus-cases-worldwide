@@ -30,11 +30,13 @@ class Cabmin:
             if any(word in html for word in self.__search_words):
                 soup = BeautifulSoup(html, "html.parser")
                 title = soup.find('div', {'class': 'articleTitle'}).text
-                article = str(soup.find('div', style=lambda value: value and 'text-align' in value).extract())
+                article = soup.find('div', style=lambda value: value and 'text-align' in value).extract()
                 if not self.__raw_article:
                     paragraphs = article.find_all('p')
                     article = '<br/>'.join([p.get_text(strip=False).replace(u'\xa0', u' ') for p in paragraphs])
-                row = {'title': title, 'body': article}
+                if 'style' in article.attrs:
+                    del article.attrs['style']
+                row = {'title': title, 'body': str(article)}
                 articles.append(row)
                 found += 1
             self.__page_num += 1
