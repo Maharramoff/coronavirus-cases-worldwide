@@ -16,6 +16,9 @@
                 <li class="nav-item {% if url_for(request.endpoint) == '/covid' %}active{% endif %}">
                     <a class="nav-link" href="/covid">Koronavirus </a>
                 </li>
+                <li class="nav-item {% if url_for(request.endpoint) == '/news' %}active{% endif %}">
+                    <a class="nav-link" href="/news">Xəbərlər </a>
+                </li>
             </ul>
         </div>
         <div class="d-xl-none d-lg-none logo"><a href="/"><img src="/static/images/coronavirus.png" height="50px" alt="logo"></a></div>
