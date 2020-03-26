@@ -7,7 +7,7 @@ class Cabmin:
     __page_num = 0
     __stop_word = "article/675"
     __raw_article = True
-    __search_words = ['koronavirus', 'məqsədilə']
+    __search_words = ['koronavirus', 'məqsədilə', 'karantin', 'xəstə']
     __cache_ttl = 30 * 60
     __cache_file = 'cache/news.json'
 
