@@ -15,12 +15,13 @@
 
     const table = $('#covid').DataTable({
         paging: false,
-        //fixedHeader: false,
+        fixedHeader: true,
        // autoWidth: false,
         info: false,
+        scrollY: "1500px",
         scrollX: true,
         //responsive: true,
-        scrollCollapse: false,
+        scrollCollapse: true,
         language: {
             search: "Axtarış:",
             emptyTable: "Məlumat tapılmadı. Zəhmət olmasa az sonra yenidən yoxlayın.<br/>" +
