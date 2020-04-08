@@ -26,7 +26,7 @@ def covid():
 
 @app.route('/news')
 def news():
-    cabmin = Cabmin(news_limit=30)
+    cabmin = Cabmin(news_limit=None)
     return flask.render_template('news/index.html', data=cabmin.news())
 
 

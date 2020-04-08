@@ -1,3 +1,5 @@
+from operator import itemgetter
+
 import requests
 from bs4 import BeautifulSoup
 from classes import Cache
@@ -5,10 +7,10 @@ from classes import Cache
 
 class Cabmin:
     __page_num = 0
-    __stop_word = "article/675"
+    __stop_num = "675"
     __raw_article = True
     __search_words = ['koronavirus', 'məqsədilə', 'karantin', 'xəstə']
-    __cache_ttl = 30 * 60
+    __cache_ttl = 10
     __cache_file = 'cache/news.json'
 
     def __init__(self, news_limit=20):
@@ -16,21 +18,28 @@ class Cabmin:
         self.cache = Cache(self.__cache_file)
 
     def news(self):
+        cached_data = self.cache.get()
         if None is not self.cache.time_diff() < self.__cache_ttl:
-            return self.cache.get()
-        articles = []
+            return cached_data
         found = 0
+        first_run = False
+        if cached_data is None:
+            first_run = True
+            cached_data = []
         while True:
             url = 'https://cabmin.gov.az/themes/getArticle.php?pagenum=' + str(self.__page_num)
             html = requests.get(url).text
-            # Xəbər 24 fevraldan əvvələ aiddirsə axtarışı dayandırırıq
-            if self.__stop_word in html or found == self.limit:
+            latest_article_num = cached_data[0]['id'] if first_run is False else self.__stop_num
+            # Xəbər yeni deyilsə axtarışı dayandırırıq
+            if 'article/' + self.__stop_num in html or (found == self.limit and self.limit is not None):
                 break
             # Xəbər koronavirusla bağlıdırsa
             if any(word in html for word in self.__search_words):
                 soup = BeautifulSoup(html, "html.parser")
                 title = soup.find('div', {'class': 'articleTitle'}).text
                 article_num = self.get_article_number(soup)
+                if article_num <= latest_article_num and first_run is False:
+                    break
                 article = soup.find('div', style=lambda value: value and 'text-align' in value).extract()
                 if not self.__raw_article:
                     paragraphs = article.find_all('p')
@@ -38,11 +47,12 @@ class Cabmin:
                 if 'style' in article.attrs:
                     del article.attrs['style']
                 row = {'id': article_num, 'title': title, 'body': str(article)}
-                articles.append(row)
+                cached_data.append(row)
                 found += 1
             self.__page_num += 1
-        self.cache.set(articles)
-        return articles
+        newlist = sorted(cached_data, key=itemgetter('id'), reverse=True)
+        self.cache.set(newlist)
+        return newlist
 
     def get_article_number(self, soup):
         article_href = soup.find('div', {'class': 'article'}).attrs.get('data-href')
@@ -51,5 +61,3 @@ class Cabmin:
     @staticmethod
     def extract_digit(txt):
         return ''.join(filter(str.isdigit, txt))
-
-

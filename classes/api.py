@@ -13,7 +13,7 @@ class Api:
         elif self.params == 'articles':
             result = Cache('static/data/covid.json').get()
         elif self.params == 'news':
-            result = Cabmin(news_limit=30).news()
+            result = Cabmin(news_limit=None).news()
         else:
             columns = [
                 'country',
