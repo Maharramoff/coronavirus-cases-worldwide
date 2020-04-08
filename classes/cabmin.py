@@ -30,15 +30,26 @@ class Cabmin:
             if any(word in html for word in self.__search_words):
                 soup = BeautifulSoup(html, "html.parser")
                 title = soup.find('div', {'class': 'articleTitle'}).text
+                article_num = self.get_article_number(soup)
                 article = soup.find('div', style=lambda value: value and 'text-align' in value).extract()
                 if not self.__raw_article:
                     paragraphs = article.find_all('p')
                     article = '<br/>'.join([p.get_text(strip=False).replace(u'\xa0', u' ') for p in paragraphs])
                 if 'style' in article.attrs:
                     del article.attrs['style']
-                row = {'title': title, 'body': str(article)}
+                row = {'id': article_num, 'title': title, 'body': str(article)}
                 articles.append(row)
                 found += 1
             self.__page_num += 1
         self.cache.set(articles)
         return articles
+
+    def get_article_number(self, soup):
+        article_href = soup.find('div', {'class': 'article'}).attrs.get('data-href')
+        return self.extract_digit(article_href)
+
+    @staticmethod
+    def extract_digit(txt):
+        return ''.join(filter(str.isdigit, txt))
+
+
