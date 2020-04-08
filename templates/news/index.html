@@ -17,7 +17,7 @@
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ loop.index }}"
                         aria-expanded="true" aria-controls="collapse{{ loop.index }}" style="text-align: left;">
                     {%- if row.title -%}
-                       {{ row.title }}
+                       {{ row.datetime }} <br/> {{ row.title }}
                     {%- endif -%}
                 </button>
             </h5>
