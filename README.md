@@ -80,12 +80,16 @@ Koronavirusla əlaqəli Azərbaycan Respublikası Nazirlər Kabinetinin xəbərl
 ```json
 [
   {
-    "body": "<div><p style=\"text-align: justify;\">Azərbaycan Respublikasında 9 yeni koronavirus infeksiyasına yoluxma faktı qeydə alınmışdır. Xüsusi rejimli xəstəxanalara yerləşdirilən və müşahidə altında olan pasiyentlər özlərini normal hiss edirlər, səhhətləri stabildir.</p>\n<p style=\"text-align: justify;\">Hazırda Azərbaycanda 42 nəfər aktiv koronavirus xəstəsi xüsusi rejimli müəssisələrdə həkim nəzarəti altında saxlanılır, onların müalicəsi ilə bağlı müvafiq tədbirlər davam etdirilir.</p>\n<p style=\"text-align: justify;\">Bir daha vətəndaşlarımızı şəxsi gigiyena qaydalarına, Ümumdünya Səhiyyə Təşkilatının, Nazirlər Kabineti yanında Operativ Qərargahın tələb və tövsiyələrinə ciddi riayət etməyə çağırırıq.</p>\n<p style=\"text-align: justify;\">Vətəndaşlardan özünütəcrid tədbirlərinə uyğun davranmaq, yalnız ciddi ehtiyac yarandıqda evdən çıxmaq, digər şəxslərlə minimum kontaktda olmaq, insanların sıx toplaşdığı yerlərə getməmək və digər qaydalara əməl etmək tələb olunur.</p></div>", 
-    "title": "Azərbaycan Respublikası Nazirlər Kabinetinin  yanında Operativ Qərargahın  MƏLUMATI "
+    "body": "<div><p style=\"text-align: justify;\">Azərbaycan Respublikasında 105 yeni koronavirus (COVID-19) infeksiyasına yoluxma faktı qeydə alınmış, həmin şəxslər xüsusi rejimli xəstəxanalara yerləşdirilmişdir.</p>\n<p style=\"text-align: justify;\">Eyni zamanda, koronavirus infeksiyasına yoluxmuş 19 nəfər müalicə olunaraq sağalmış və evə buraxılmışdır.</p>\n<p style=\"text-align: justify;\">Hazırkı dövrədək ölkəmizdə 822 nəfərin koronavirus infeksiyasına yoluxması faktı müəyyən edilmiş, onlardan 63 nəfəri müalicə olunaraq sağalmış, 8 nəfər vəfat etmiş, 751 nəfərin xüsusi rejimli xəstəxanalarda müalicəsi davam etdirilir. Həmin şəxslərdən 33 nəfərin vəziyyəti ağır, 47 nəfərin vəziyyəti orta ağır qiymətləndirilir, digərlərinin səhhəti stabildir.</p>\n<p> </p></div>", 
+    "datetime": "08 Aprel 2020 - 19:20", 
+    "id": "796", 
+    "title": "Azərbaycan Respublikası Nazirlər Kabineti yanında Operativ Qərargahın məlumatı "
   }, 
   {
-    "body": "<div><p style=\"text-align: justify;\">Martın 21-də Nazirlər Kabinetində operativ qərargahın növbəti iclası keçirilib.</p>\n<p style=\"text-align: justify;\">İclasda koronavirus infeksiyasının yayılmasının qarşısının alınması ilə bağlı hazırkı vəziyyət təhlil olunub, səhiyyə sahəsində görülməli işlər, tətbiq olunmuş məhdudiyyətlərin ilkin nəticələri və digər məsələlər müzakirə edilib, həyata keçiriləcək vəzifələrə dair tapşırıqlar verilib.</p></div>", 
-    "title": "Nazirlər Kabineti yanında operativ qərargahın iclasında epidemiya (Covid-19) ilə mübarizənin hazırkı vəziyyəti müzakirə olunub "
+    "body": "<div><p style=\"text-align: justify;\">Azərbaycan Respublikasında 76 yeni koronavirus (COVID-19) infeksiyasına yoluxma faktı qeydə alınmış, bir nəfər vəfat etmişdir.</p>\n<p style=\"text-align: justify;\">Koronavirus (COVID-19) üçün götürülən analiz nümunələri müsbət çıxmış 1953-cü il təvəllüdlü, şəkərli diabet xəstəsi olan vətəndaşın səhhətinin stabilləşdirilməsi ilə bağlı aparılan reanimasiya tədbirləri nəticə verməmişdir. Onun ailə üzvləri və ünsiyyətdə olduğu digər şəxslər müəyyən edilir və karantinə götürülür.</p>\n<p style=\"text-align: justify;\">Hazırkı dövrədək ölkəmizdə 717 nəfərin koronavirus infeksiyasına yoluxması faktı müəyyən edilmiş, onlardan 44 nəfəri müalicə olunaraq sağalmış, 8 nəfər vəfat etmiş, 665 nəfərin xüsusi rejimli xəstəxanalarda müalicəsi davam etdirilir. Həmin şəxslərdən 23 nəfərin vəziyyəti ağır, 31 nəfərin vəziyyəti orta ağır qiymətləndirilir, digərlərinin səhhəti stabildir.</p>\n<p style=\"text-align: justify;\">Ötən müddət ərzində yeni yoluxma hallarının müəyyənləşdirilməsi ilə əlaqədar 53 300 test aparılmışdır.</p></div>", 
+    "datetime": "07 Aprel 2020 - 15:50", 
+    "id": "795", 
+    "title": "Azərbaycan Respublikası Nazirlər Kabineti yanında Operativ Qərargahın məlumatı "
   }
 ]
 ```
