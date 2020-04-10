@@ -1,4 +1,4 @@
-from classes import Coronavirus, Cache, Cabmin
+from classes import Coronavirus, Cache, Cabmin, LocalStats
 
 
 class Api:
@@ -14,6 +14,8 @@ class Api:
             result = Cache('static/data/covid.json').get()
         elif self.params == 'news':
             result = Cabmin(news_limit=None).news()
+        elif self.params == 'local_stats':
+            result = LocalStats().get_data()
         else:
             columns = [
                 'country',
