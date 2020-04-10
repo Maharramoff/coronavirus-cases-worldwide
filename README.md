@@ -56,6 +56,35 @@ Qlobal statistika
 }
 ```
 
+Azərbaycanın bölgələri üzrə statistika
+
+`GET https://covid-az.herokuapp.com/api/local_stats`
+
+```json
+[
+  {
+    "infected": "95", 
+    "label": "Xarici"
+  }, 
+  {
+    "infected": "149", 
+    "label": "Bakı"
+  }, 
+  {
+    "infected": "18", 
+    "label": "Lənkəran"
+  }, 
+  {
+    "infected": "11", 
+    "label": "Abşeron"
+  }, 
+  {
+    "infected": "9", 
+    "label": "Qusar"
+  }
+]
+```
+
 Koronavirusla bağlı məqalələr
 
 `GET https://covid-az.herokuapp.com/api/articles`
