@@ -3,10 +3,11 @@ from classes import Cache, TableScraper
 
 class Coronavirus:
     __check_params = [None, 'All']
+    __ignored_countries = ['Total',]
     __table_attribute = 'id'
     __attribute_value = 'main_table_countries_today'
     __website_url = 'https://www.worldometers.info/coronavirus/'
-    __cache_ttl = 10 * 60
+    __cache_ttl = 10
     __cache_file = 'cache/data.json'
     __cache_stat_file = 'cache/stat.json'
     __trs = None
@@ -37,7 +38,8 @@ class Coronavirus:
         if self.__trs is not None:
             for tr in self.__trs[1:-1]:
                 tds = self.table_scraper.get_tds(tr)
-                rows.append(tds[:6])
+                if self.validate_row(tds):
+                    rows.append(tds[:6])
                 if self.country not in self.__check_params and self.country in tds[0]:
                     return [tds[:6]]
             self.cache.set(rows)
@@ -61,3 +63,8 @@ class Coronavirus:
         else:
             self.__trs = self.table_scraper.get_trs()
         pass
+
+    def validate_row(self, row):
+        if any(word in row[0] for word in self.__ignored_countries) or len(row[0]) == 0:
+            return False
+        return True
