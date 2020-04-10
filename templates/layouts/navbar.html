@@ -14,10 +14,13 @@
                     <a class="nav-link" href="/">Baş səhifə</a>
                 </li>
                 <li class="nav-item {% if url_for(request.endpoint) == '/covid' %}active{% endif %}">
-                    <a class="nav-link" href="/covid">Koronavirus </a>
+                    <a class="nav-link" href="/covid">Koronavirus</a>
                 </li>
                 <li class="nav-item {% if url_for(request.endpoint) == '/news' %}active{% endif %}">
-                    <a class="nav-link" href="/news">Xəbərlər </a>
+                    <a class="nav-link" href="/news">Xəbərlər</a>
+                </li>
+                <li class="nav-item {% if url_for(request.endpoint) == '/timeline' %}active{% endif %}">
+                    <a class="nav-link" href="/timeline">Xronologiya</a>
                 </li>
             </ul>
         </div>

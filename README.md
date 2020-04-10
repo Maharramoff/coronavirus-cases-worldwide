@@ -122,3 +122,24 @@ Koronavirusla əlaqəli Azərbaycan Respublikası Nazirlər Kabinetinin xəbərl
   }
 ]
 ```
+
+Azərbaycanda koronavirusla əlaqəli hadisələrin xronoloji ardıcıllığı
+
+`GET https://covid-az.herokuapp.com/api/timeline`
+
+```json
+[
+  {
+    "body": "Fevralın 27-də koronavirus pandemiyasının səbəb ola biləcəyi təhlükənin qarşısını almaq, profilaktik və təxirəsalınmaz tədbirlərin görülməsi üçün Nazirlər Kabineti nəzdində operativ qərargah yaradıldı. Bu qərargahın tərkibinə Azərbaycanın səhiyyə naziri Oqtay Şirəliyevin rəhbərlik etdiyi aidiyyəti dövlət qurumlarının rəhbərləri daxil idi.", 
+    "datetime": "27 Fevral 2020"
+  }, 
+  {
+    "body": "Fevralın 28-də ölkədə COVID-19-un ilk müsbət halını təsdiqlədi. Rusiya vətəndaşı olan xəstə İrandan gələrkən müəyyən edildi. Daha sonra ölkədə iki hadisə təsdiqləndi və hamısı təcrid edildi. Onlar İrandan qayıdan Azərbaycan vətəndaşları idilər. Həmin gün Azərbaycan İranla sərhədləri 2 həftə müddətinə bağladı.", 
+    "datetime": "28 Fevral 2020"
+  }, 
+  {
+    "body": "2 mart tarixində COVID-19 infeksiyasının yayılmasının qarşısını almaq, bu sahədə görülən tədbirlərin səmərəliliyini artırmaq və tibbi profilaktikanı gücləndirmək məqsədi ilə 3-9 mart tarixləri arasında ölkənin bütün təhsil müəssisələrində tədris prosesləri və digər əlaqəli fəaliyyətlər dayandırıldı. Dezinfeksiya və digər profilaktik tədbirlər həyata keçirildi. Daha sonra tarix martın 27-nə qədər uzadıldı.", 
+    "datetime": "02 Mart 2020"
+  }
+]
+```

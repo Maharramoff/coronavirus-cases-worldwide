@@ -30,6 +30,12 @@ def news():
     return flask.render_template('news/index.html', data=cabmin.news())
 
 
+@app.route('/timeline')
+def timeline():
+    data = Cache('static/data/timeline.json')
+    return flask.render_template('timeline/index.html', data=data.get())
+
+
 @app.route('/api/')
 @app.route('/api/<params>')
 def api(params=None):

@@ -1,0 +1,60 @@
+{% extends 'layouts/master.html' %}
+{% block content %}
+
+<div class="container py-2 mt-4 mb-4">
+    {% for row in data|reverse %}
+        {% if loop.index is divisibleby(2) %}
+            <div class="row no-gutters">
+                <div class="col-sm"> <!--spacer--> </div>
+                <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
+                    <div class="row h-50">
+                        <div class="col border-right">&nbsp;</div>
+                        <div class="col">&nbsp;</div>
+                    </div>
+                    <h5 class="m-2">
+                        <span class="badge badge-pill bg-light border">&nbsp;</span>
+                    </h5>
+                    <div class="row h-50">
+                        <div class="col border-right">&nbsp;</div>
+                        <div class="col">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="col-sm py-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="font-weight-bold" style="color: #866ec7">{{ row.datetime }}</div>
+                            <p>{{ row.body | safe }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="row no-gutters">
+            <div class="col-sm py-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="font-weight-bold" style="color: #866ec7">{{ row.datetime }}</div>
+                        <p>{{ row.body | safe }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                    <div class="col border-right">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+                <h5 class="m-2">
+                    <span class="badge badge-pill bg-light border">&nbsp;</span>
+                </h5>
+                <div class="row h-50">
+                    <div class="col border-right">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+            </div>
+            <div class="col-sm"> <!--spacer--> </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

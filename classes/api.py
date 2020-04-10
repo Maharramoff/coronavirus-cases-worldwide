@@ -16,6 +16,8 @@ class Api:
             result = Cabmin(news_limit=None).news()
         elif self.params == 'local_stats':
             result = LocalStats().get_data()
+        elif self.params == 'timeline':
+            result = Cache('static/data/timeline.json').get()
         else:
             columns = [
                 'country',
