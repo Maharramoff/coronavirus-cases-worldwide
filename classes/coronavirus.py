@@ -38,10 +38,10 @@ class Coronavirus:
         if self.__trs is not None:
             for tr in self.__trs[1:-1]:
                 tds = self.table_scraper.get_tds(tr)
-                if self.validate_row(tds):
-                    rows.append(tds[:6])
-                if self.country not in self.__check_params and self.country in tds[0]:
-                    return [tds[:6]]
+                if self.validate_row(tds[1:]):
+                    rows.append(tds[1:7])
+                if self.country not in self.__check_params and self.country in tds[1]:
+                    return [tds[1:7]]
             self.cache.set(rows)
         return rows
 
@@ -51,7 +51,7 @@ class Coronavirus:
         rows = []
         if self.__trs is not None:
             tds = self.table_scraper.get_tds(self.__trs[-1])
-            rows = dict(zip(self.__stats_columns, tds[1:]))
+            rows = dict(zip(self.__stats_columns, tds[2:]))
             self.cache_stat.set(rows)
         return rows
 

@@ -1,10 +1,10 @@
 {
-    "total_cases": "1,633,448",
-    "new_cases": "+29,796",
-    "total_deaths": "97,602",
-    "new_deaths": "+1,910",
-    "total_recovered": "366,673",
-    "active_cases": "1,169,173",
-    "critical_cases": "49,416",
-    "per_mln": "209.6"
+    "total_cases": "4,609,337",
+    "new_cases": "+87,348",
+    "total_deaths": "307,496",
+    "new_deaths": "+4,414",
+    "total_recovered": "1,742,455",
+    "active_cases": "2,559,386",
+    "critical_cases": "45,056",
+    "per_mln": "591.3"
 }
