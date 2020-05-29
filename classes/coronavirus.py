@@ -19,6 +19,7 @@ class Coronavirus:
         'total_deaths',
         'new_deaths',
         'total_recovered',
+        'new_recovered',
         'active_cases',
         'critical_cases',
         'per_mln',
